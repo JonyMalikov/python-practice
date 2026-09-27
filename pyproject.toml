@@ -21,16 +21,18 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "D203",   # конфликтует с D211
-    "D213",   # конфликтует с D212
-    "COM812", # конфликтует с ruff format
-    "ISC001", # конфликтует с ruff format
-    "D401",   # imperative mood — эвристика для английского, на русском не работает
+    "D203",
+    "D213",
+    "COM812",
+    "ISC001",
+    "D401",
+    "CPY001",   # copyright — для учебного репо не нужен
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "00_warmup/*" = ["D100", "D103", "T201", "PLR2004", "S101", "S105"]
-"05_algorithms/*/solution.py" = ["D100", "D103", "S101", "PLR2004"]
+"05_algorithms/**/solution.py" = ["D100", "D103", "S101", "PLR2004"]
+"05_algorithms/test_*.py" = ["D100", "D103", "S101", "INP001"]
 "02_oop/*/solution.py" = ["D100"]
 "04_sql/*" = ["ALL"]
 
