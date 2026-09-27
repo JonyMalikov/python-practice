@@ -30,7 +30,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"00_warmup/*" = ["D100", "D103", "T201", "PLR2004", "S101", "S105"]
+"00_warmup/*" = ["D100", "D103", "INP001", "T201", "PLR2004", "S101", "S105"]
 "05_algorithms/**/solution.py" = ["D100", "D103", "S101", "PLR2004"]
 "05_algorithms/test_*.py" = ["D100", "D103", "S101", "INP001"]
 "02_oop/*/solution.py" = ["D100"]
