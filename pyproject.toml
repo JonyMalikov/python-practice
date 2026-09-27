@@ -31,8 +31,18 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "00_warmup/*" = ["D100", "D103", "INP001", "T201", "PLR2004", "S101", "S105"]
-"05_algorithms/**/solution.py" = ["D100", "D103", "S101", "PLR2004"]
-"05_algorithms/test_*.py" = ["D100", "D103", "S101", "INP001"]
+"05_algorithms/**/solution.py" = [
+    "D100",   # нет модульного докстринга (мы его пишем, но на всякий)
+    "D103",   # нет докстринга у функций (некоторые Easy-решения без них)
+    "INP001", # папка задачи — не пакет, __init__.py не нужен
+    "S101",   # assert в __main__ — норм
+    "PLR2004",# magic values (типа `if n > 10`) — норм в алгоритмах
+    "T201",   # print в __main__ для локальной проверки
+    "RUF001", # ambiguous unicode — кириллица в русских докстрингах
+    "RUF002", # ambiguous unicode в docstring — то же
+    "RUF003", # ambiguous unicode в комментариях — то же
+]
+"05_algorithms/**/test_*.py" = ["D100", "D103", "INP001", "S101"]
 "02_oop/*/solution.py" = ["D100"]
 "04_sql/*" = ["ALL"]
 
