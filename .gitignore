@@ -1,0 +1,38 @@
+# Виртуальное окружение
+.venv/
+venv/
+
+# Секреты
+.env
+.env.*
+!.env.example
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Кэш инструментов
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Данные БД
+postgres_data/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ОС
+.DS_Store
+Thumbs.db
+
+# uv
+.uv/
+
+# Логи
+*.log

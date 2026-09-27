@@ -1,0 +1,56 @@
+[project]
+name = "python-practice"
+version = "0.1.0"
+description = "Учебные задачи по Python, SQL и алгоритмам"
+readme = "README.md"
+requires-python = ">=3.12"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "pre-commit>=3.7",
+    "mypy>=1.11",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+# src намеренно убран: репозиторий без пакета, src = ["."] даст ложные срабатывания
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D203",   # конфликтует с D211
+    "D213",   # конфликтует с D212
+    "COM812", # конфликтует с ruff format
+    "ISC001", # конфликтует с ruff format
+    "D401",   # imperative mood — эвристика для английского, на русском не работает
+]
+
+[tool.ruff.lint.per-file-ignores]
+"00_warmup/*" = ["D100", "D103", "T201", "PLR2004", "S101", "S105"]
+"05_algorithms/*/solution.py" = ["D100", "D103", "S101", "PLR2004"]
+"02_oop/*/solution.py" = ["D100"]
+"04_sql/*" = ["ALL"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+# Явно: trailing comma → многострочность (поведение Black)
+skip-magic-trailing-comma = false
+
+[tool.pytest.ini_options]
+testpaths = ["02_oop", "04_sql", "05_algorithms"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+show_error_context = true
