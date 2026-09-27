@@ -8,6 +8,6 @@ repos:
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v2.3.1
     hooks:
-      - id: mypy
-        args: [--config-file=pyproject.toml]
-        additional_dependencies: []
+     - id: mypy
+       args: [--config-file=pyproject.toml]
+       additional_dependencies: []

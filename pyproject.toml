@@ -31,7 +31,7 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "00_warmup/*" = ["D100", "D103", "INP001", "T201", "PLR2004", "S101", "S105"]
-"05_algorithms/**/solution.py" = [
+"05_algorithms/**/*.py" = [
     "D100",   # нет модульного докстринга (мы его пишем, но на всякий)
     "D103",   # нет докстринга у функций (некоторые Easy-решения без них)
     "INP001", # папка задачи — не пакет, __init__.py не нужен
@@ -61,6 +61,9 @@ addopts = "-v --tb=short"
 [tool.mypy]
 python_version = "3.12"
 strict = true
+explicit_package_bases = true    
+namespace_packages = true  
+mypy_path = "."         
 warn_unreachable = true
 warn_return_any = true
 warn_unused_ignores = true
